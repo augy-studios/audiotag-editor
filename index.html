@@ -46,8 +46,90 @@
 </head>
 
 <body>
-    Audio Tag Editor
+    <header>
+        <div class="wrap">
+            <div class="brand" title="UwU Tag">
+                <span class="beacon" aria-hidden="true"></span>
+                UwU Tag
+                <span class="subtitle">The MP3 tag editor, in your browser.</span>
+            </div>
+        </div>
+    </header>
 
+    <main>
+        <div class="controls">
+            <div class="toolbar">
+                <label class="file" title="Add audio files">
+                    <input id="fileInput" type="file" accept="audio/*, .mp3, .flac, .m4a, .wav, .ogg" multiple />
+                    + Add Files
+                </label>
+                <button id="openDir" class="secondary" title="Open a folder (File System Access)">Open Folder</button>
+                <button id="exportCsv" class="secondary" title="Export tags to CSV">Export CSV</button>
+                <button id="importCsv" class="secondary" title="Import CSV to edit">Import CSV</button>
+                <button id="batchSave" class="brand" title="Write tags & save files">Save Edited Files</button>
+                <button id="clearAll" class="ghost" title="Clear list">Clear</button>
+            </div>
+            <div class="badge" title="Edited items">
+                <span class="status-dot" id="editedDot"></span>
+                <span id="editedCount">0</span> edited
+            </div>
+        </div>
+
+        <div class="layout">
+            <div>
+                <div id="dropzone" class="dropzone" aria-label="Drop files here">
+                    Drag & drop audio files here, or use “Add Files”.
+                </div>
+
+                <div class="grid" style="margin-top:12px">
+                    <table id="table">
+                        <thead>
+                            <tr>
+                                <th style="width:34px"></th>
+                                <th style="width:40px">Art</th>
+                                <th>File</th>
+                                <th>Title</th>
+                                <th>Artist</th>
+                                <th>Album</th>
+                                <th style="width:80px">Track</th>
+                                <th style="width:80px">Year</th>
+                                <th>Genre</th>
+                                <th>Comment</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <aside class="sidebar" aria-label="Batch editor">
+                <h3>Batch Editor</h3>
+                <p class="hint">Edit fields and <strong>Apply to selected</strong>. Great for mass updates.</p>
+                <div class="field"><label for="b_title">Title</label><input id="b_title"
+                        placeholder="Leave blank to ignore"></div>
+                <div class="field"><label for="b_artist">Artist</label><input id="b_artist" placeholder=""></div>
+                <div class="field"><label for="b_album">Album</label><input id="b_album"></div>
+                <div class="field"><label for="b_track">Track</label><input id="b_track" type="number" min="0"></div>
+                <div class="field"><label for="b_year">Year</label><input id="b_year" type="number" min="0"></div>
+                <div class="field"><label for="b_genre">Genre</label><input id="b_genre"></div>
+                <div class="field"><label for="b_comment">Comment</label><textarea id="b_comment" rows="2"></textarea>
+                </div>
+                <div class="field"><label for="b_art">Cover Art</label><input id="b_art" type="file" accept="image/*">
+                </div>
+                <div class="field"><button id="applyBatch" class="brand">Apply to selected</button></div>
+                <div class="divider"></div>
+                <p class="hint">Tip: Double‑click any cell in the grid to edit inline. Changes are local until you click
+                    <em>Save Edited Files</em>.</p>
+            </aside>
+        </div>
+
+        <div class="footer">
+            Made with ❤️ by Augy.
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/music-metadata-browser/dist/music-metadata-browser.min.js"></script>
+    <script src="https://unpkg.com/browser-id3-writer/dist/browser-id3-writer.umd.js"></script>
     <script src="/script.js"></script>
 </body>
 
