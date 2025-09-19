@@ -1,9 +1,9 @@
 {
-    "name": "Template by UwU Apps",
-    "short_name": "UwU Template",
-    "description": "A simple template app; view live template at a glance!",
+    "name": "Audio Tag Editor by UwU Apps",
+    "short_name": "UwU Audio Tag Editor",
+    "description": "Edit the metadata and tags of your audio files here!",
     "icons": [{
-        "src": "templateicon1.png",
+        "src": "audiotagicon1.png",
         "type": "image/png",
         "sizes": "512x512"
     }],
